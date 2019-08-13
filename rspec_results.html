@@ -282,14 +282,37 @@ a {
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_1" class="passed">can do stuff</dt>
-    <script type="text/javascript">moveProgressBar('50.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">can do a google search</span><span class='duration'>7.94167s</span></dd>
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_1');</script>
+    <script type="text/javascript">makeRed('example_group_1');</script>
     <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">can hit the NWS site</span><span class='duration'>1.86231s</span></dd>
+    <dd class="example failed">
+      <span class="failed_spec_name">can pick today as the date</span>
+      <span class="duration">3.19027s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>  Failure/Error: expect(&#39;input#datepicker.form-control&#39;).to be(Date.new.today)
+
+    expected #&lt;String:70354069235600&gt; =&gt; &quot;08/12/2019&quot;
+         got #&lt;String:70354069236040&gt; =&gt; &quot;input#datepicker.form-control&quot;
+
+    Compared using equal?, which compares object identity,
+    but expected and actual are not the same object. Use
+    `expect(actual).to eq(expected)` if you don&#39;t care about
+    object identity in this example.
+  # ./spec/search_test_spec.rb:42:in `block (2 levels) in &lt;top (required)&gt;&#39;</pre></div>
+        <div class="backtrace"><pre>./spec/search_test_spec.rb:42:in `block (2 levels) in &lt;top (required)&gt;&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">40</span>    find('#datepicker').click
+<span class="linenum">41</span>    find('td.today').click
+<span class="offending"><span class="linenum">42</span>    expect('input#datepicker.form-control').to be(Date.new.today)</span>
+<span class="linenum">43</span>  end
+<span class="linenum">44</span>end
+<span class="linenum">45</span><span class="comment"># Install the coderay gem to get syntax highlighting</span></code></pre>
+      </div>
+    </dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>9.81815 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "2 examples, 0 failures";</script>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>3.24447 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "1 example, 1 failure";</script>
 </div>
 </div>
 </body>
